@@ -1,4 +1,4 @@
-baseURL = "https://blog.ileopold.cn/"
+baseURL = "http://ileopold.cn/"
 languageCode = "en-us"
 title = "Headbanger"
 theme = "yinyang"
@@ -52,7 +52,7 @@ favicon = "/logo.png"
 mainSections = ["posts"]
 staticPrefix = "https://cdn.jsdelivr.net/gh/biexiang/headbanger@main/static"
 postHeaderContent = ""
-postFooterContent = '<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://blog.joway.io/images/cc.png" /></a>'
+# postFooterContent = '<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://ileopold.cn/images/cc.png" /></a>'
 disqus = "ileopold" 
 lazyImage = true
 

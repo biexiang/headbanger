@@ -1,0 +1,16 @@
+name: 'Trigger to update blog'
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - LICENSE
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Try Rebuild'
+        run: bash ./rebuild.sh
+      - name: 'Get Date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV

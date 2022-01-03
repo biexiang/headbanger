@@ -20,6 +20,4 @@ layout: about
 刷剧、游戏，2022年会增加看书和旅行。
 
 ### Find me
-全平台基本都叫做 ileopold。
-
-测试
+全平台基本都叫 ileopold。

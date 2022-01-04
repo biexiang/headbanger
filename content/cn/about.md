@@ -14,6 +14,22 @@ layout: about
 
 小站用于从自身需求出发追踪记录自己的时间都花在哪些地方，量化自己，积累自己，作为自己的人生清单。
 
+--- 
+### Changelog
+```
+✔ 增加网易云音乐 @2022-01-03
+✔ 增加评论 @2022-01-03
+✔ Github Action自动发布 @2022-01-03
+✔ 升级HTTPS @2022-01-04 Use Let's encrypt
+✘ 增加RSS
+✘ 增加图床
+✘ 增加bilibili
+✘ 增加Web编辑md工作流
+✘ 增加Web小游戏
+✘ 增加Leetcode刷题看板
+✘ 增加douban/collect
+```
+
 ## 关于我
 
 ```

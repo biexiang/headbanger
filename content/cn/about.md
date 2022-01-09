@@ -28,6 +28,7 @@ layout: about
 ✘ 增加Web小游戏
 ✘ 增加Leetcode刷题看板
 ✘ 增加douban/collect
+✘ 增加Chrome小恐龙游戏自动运行
 ```
 
 ## 关于我

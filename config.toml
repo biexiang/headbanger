@@ -40,7 +40,7 @@ canonifyURLs = false
     guessSyntax = true
     noClasses = true
     lineNumbersInTable = true
-    style = "monokai"
+    style = "rrt" #https://xyproto.github.io/splash/docs/
     tabWidth = 2
 
 [author]

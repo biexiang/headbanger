@@ -10,9 +10,9 @@ categories: ['Algorithm','Leetcode']
 
 
 ### 实现
-以下分为普通的循环队列和并发安全的循环队列。
+以下分为不加锁的循环队列和无锁的循环队列。
 
-#### 普通的循环队列
+#### 不加锁的循环队列
 循环队列类似 `Producer-Consumer` 模式，Tail指针的移动产生数据，Head指针的移动消费数据。同时和Channel相似的是关键的函数签名，DeQueue类似 `val, ok <- ch`，EnQueue类似 `ch <- val`，只不过下面的RingBuffer实现还不会阻塞等待。
 原本循环队列使用取余来获取新的索引，因为CPU做位运算性能更高，所以改成Capacity为2的幂次，这样通过和Mask做与操作可以实现Turn Arround。
 
@@ -90,4 +90,11 @@ func (c *RingBuffer) IsFull() bool {
 }
 ```
 
-#### 并发安全的循环队列
+#### 无锁的循环队列
+无锁，即lock-free，是一种通过CPU提供的原子操作（CAS）来实现的乐观并发控制算法，虽然没有显式的调用锁，但是实现了锁的功能，原子指令本身就是带锁的操作，只是锁的粒度比较小。
+
+
+
+
+### Reference
+* [https://www.fournoas.com/posts/lock-free-queue-is-not-lock-free/](无锁队列并非真的无锁)

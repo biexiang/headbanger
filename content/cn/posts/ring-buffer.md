@@ -5,6 +5,8 @@ draft: false
 categories: ['Algorithm','Leetcode']
 ---
 
+{{< music id="455420533" >}}
+
 ### 起源
 看Go Channel源码的时候，都有提到 `Ring Buffer`，同时力扣上也刷到了类似的题目 [622. 设计循环队列](https://leetcode-cn.com/problems/design-circular-queue/)，这里记录下 Ring Buffer 的调查结果，[ Golang Channel ]({{<ref "/posts/golang-channel">}}) 也用到了循环队列。
 

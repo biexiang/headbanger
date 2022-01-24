@@ -21,8 +21,8 @@ layout: about
 ✔ 增加评论 @2022-01-03
 ✔ Github Action自动发布 @2022-01-03
 ✔ 升级HTTPS @2022-01-04 Use Let's encrypt
+✔ 增加图床
 ✘ 增加RSS
-✘ 增加图床
 ✘ 增加bilibili
 ✘ 增加Web编辑md工作流
 ✘ 增加Web小游戏

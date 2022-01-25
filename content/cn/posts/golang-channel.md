@@ -12,7 +12,7 @@ Do not communicate by sharing memory; instead, share memory by communicating.
 {{< /quote >}}
 
 ### 简单使用
-channel的创建、发送、接受、关闭的简单使用如下：
+channel的创建、发送、接收、关闭的简单使用如下：
 
 <script id="asciicast-463838" src="https://asciinema.org/a/463838.js" async></script>
 
@@ -90,7 +90,7 @@ hchan里一共有三个队列，channel数据的缓冲区是循环队列，sendq
 * chan是否已经关闭
 
 关闭包括：
-* 释放接受协程队列
+* 释放接收协程队列
 * 释放发送协程队列
 * 唤醒所有等待的协程
 

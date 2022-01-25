@@ -387,6 +387,5 @@ return true, success
 ### Reference
 * [channel底层的数据结构是什么](https://blog.frognew.com/2021/11/read-go-sources-channel-make.html)
 * [Go 的并发：Channel 源码浅析](https://paulzhn.me/posts/go-channel.html)
-* [Golang中MulUintptr实现原理](https://juejin.cn/post/6886045069149732877)
 * [Golang-gopark函数和goready函数原理分析](https://blog.csdn.net/u010853261/article/details/85887948)
 * [Delve调试器](https://chai2010.cn/advanced-go-programming-book/ch3-asm/ch3-09-debug.html)

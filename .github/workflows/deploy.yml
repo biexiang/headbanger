@@ -16,4 +16,4 @@ jobs:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SECRET }}
-          script: cd /home/ileopold/application/headbanger && hugo
+          script: cd /home/ileopold/application/headbanger && git pull && git submodule update --recursive && hugo

@@ -5,7 +5,7 @@ draft: false
 categories: ['Share','Golang']
 ---
 
-{{< music id="29431219" >}}
+{{< music id="1299424231" >}}
 
 {{< quote >}}
 Do not communicate by sharing memory; instead, share memory by communicating.
@@ -257,12 +257,14 @@ func chanrecv(c *hchan, ep unsafe.Pointer, block bool) (selected, received bool)
 
 #### 直接接收
 如果发送队列里有`sudog`，调用recv进行传输，这里分为两种情况：
-* 情况一：channel是无缓存队列，直接将`sudog`中的element挪到待接收的地址ep
-* 情况二：channel是有缓存队列，首先拿recvx计算当前接收的缓存队列地址qp，将qp地址的数据挪到待接收地址ep，再将`sudog`里的element数据挪到qp地址，再将recvx自增1。
+* 情况一：当channel是无缓存队列，直接将`sudog`中的element挪到待接收的地址ep
+* 情况二：当channel是有缓存队列，`前情提要：接收数据时能从sendq中dequeue到待发送sudog说明buf队列已经满了，即qcount=dataqsiz`，因为要保证队列的整体的FIFO,所以首先拿recvx计算当前接收的buf缓存队列地址qp，将qp地址的数据挪到待接收地址ep，再将`sudog`里的element数据挪到qp地址，因为recvx内存块的已经发送给ep了，所以recvx自增1，同时判断是否euql dataqsiz，实现Turn arround。
 
-然后将`sudog`的elem置为nil，唤醒该`sudog`的协程。
+情况二里，至于为什么 `c.sendx = c.recvx`？发挥一下想象力，当前buf缓存是满的，如果不进行上面的赋值，当sendq为空了，从buf中再取出一次，recvx++，buf缓存不是满的了，再接收一次，sendx会把有效数据给覆盖了，如果赋值了，后续接收覆盖的都是已经发送过的数据内存地址。
 
-`这里我没搞懂为啥 c.sendx = c.recvx？`
+
+然后将`sudog`的elem置为nil，唤醒该`sudog` 关联的协程。
+
 
 ```
 if sg := c.sendq.dequeue(); sg != nil {
@@ -379,9 +381,8 @@ return true, success
 
 
 ### 总结
-待解决前面几个问题：
+待解决前面的问题：
 * [为什么有缓存的指针类型不能分配连续内存呢？]({{<ref "/posts/golang-channel#创建">}})
-* [为啥c.sendx = c.recvx？]({{<ref "/posts/golang-channel#直接接收">}})
 
 
 ### Reference

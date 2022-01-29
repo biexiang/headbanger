@@ -72,7 +72,7 @@ postHeaderContent = ""
 # postFooterContent = '<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://ileopold.cn/images/cc.png" /></a>'
 disqus = "ileopold" 
 lazyImage = true
-googleAnalyticsID = "G-C6DR4Q68V1" # https://gist.github.com/zjeaton/42246742cdaf2fb46400d04c2eba9a8a
+googleAnalyticsID = "G-JV86B54BT8" # https://gist.github.com/zjeaton/42246742cdaf2fb46400d04c2eba9a8a
 
 # extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://cdn.jsdelivr.net/gh/joway/homepage/analytics.js"></script>'
 # extraBody = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'

@@ -92,7 +92,7 @@ link = "https://book.douban.com/people/ileopold/collect"
 
 [[params.socials]]
 name = "Travel"
-link = "/categories/travel/"
+link = "/404/"
 
 [[params.socials]]
 name = "About"

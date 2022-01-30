@@ -1,8 +1,8 @@
 ---
-title: "Golang Channel"
+title: "Golang Channel 原理"
 date: 2022-01-16T22:07:24+08:00
 draft: false
-categories: ['Share','Golang']
+categories: ['Golang','Share']
 ---
 
 {{< music id="1299424231" >}}

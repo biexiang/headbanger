@@ -1,7 +1,7 @@
 ---
-title: "Golang database/sql"
+title: "Golang database/sql 源码分享"
 date: 2021-12-23T16:19:36+08:00
-categories: ['Share','Golang']
+categories: ['Golang','Share']
 draft: false
 ---
 

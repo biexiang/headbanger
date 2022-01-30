@@ -3,6 +3,8 @@ title: "支持B站视频和图片"
 date: 2022-01-04T22:31:49+08:00
 draft: false
 categories: ['Video']
+keywords: ['hugo','bilibili','图床']
+description: "Hugo支持b站视频？Hugo支持网易云音乐？Hugo支持图床？"
 ---
 
 ## 图片

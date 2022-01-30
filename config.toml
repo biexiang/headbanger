@@ -1,5 +1,5 @@
 baseURL = "http://ileopold.cn/"
-languageCode = "en-us"
+languageCode = "zh-cn"
 title = "Headbanger"
 theme = "yinyang"
 DefaultContentLanguage = "cn"
@@ -64,7 +64,7 @@ refLinksNotFoundURL = "/404"
 
 [params]
 headTitle = "Headbanger"
-description = "For Self Tracking & Make Fun"
+description = "For self tracking and make progress"
 favicon = "/logo.png"
 mainSections = ["posts"]
 staticPrefix = "https://cdn.jsdelivr.net/gh/biexiang/headbanger@main/static"

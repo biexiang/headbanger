@@ -3,6 +3,8 @@ title: "关于LRU和LFU算法"
 date: 2022-01-09T14:37:13+08:00
 draft: false
 categories: ['Algorithm','Leetcode']
+keywords: ['Golang','LeetCode','力扣','LRU','LFU','算法']
+description: "什么是LRU算法？什么是LFU算法？他们俩有什么区别？"
 ---
 
 ### 源头

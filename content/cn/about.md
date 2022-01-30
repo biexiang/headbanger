@@ -3,6 +3,8 @@ title: "About"
 date: 2022-01-02T19:08:29+08:00
 draft: false
 layout: about
+keywords: ['关于我','自我介绍','Introduction']
+description: "我是ileopold，很高兴认识你！"
 ---
 
 {{< music id="31514479" >}}

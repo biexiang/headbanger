@@ -3,6 +3,8 @@ title: "Ring Buffer 介绍"
 date: 2022-01-16T21:58:21+08:00
 draft: false
 categories: ['Algorithm','Leetcode']
+keywords: ['Golang','LeetCode','力扣','算法',"Ring Buffer","环形队列"]
+description: "什么是环形队列？怎么用Golang实现一个环形队列？什么是无锁的环形队列？Golang Channel和环形队列有什么关系？"
 ---
 
 {{< music id="455420533" >}}

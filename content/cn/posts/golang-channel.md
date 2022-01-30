@@ -3,6 +3,8 @@ title: "Golang Channel 原理"
 date: 2022-01-16T22:07:24+08:00
 draft: false
 categories: ['Golang','Share']
+keywords: ['Golang','Channel','源码阅读','dlv','delve']
+description: "从使用角度分析Golang Channel的底层原理，通过源码阅读和代码测试验证自己的猜想"
 ---
 
 {{< music id="1299424231" >}}

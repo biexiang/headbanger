@@ -3,6 +3,8 @@ title: "Golang unsafe Pointer 怎么用"
 date: 2022-01-23T16:00:23+08:00
 draft: false
 categories: ['Golang','Share']
+keywords: ['Golang','unsafe Pointer','源码阅读','分享','benchmark','指针']
+description: “Golang unsafe Pointer有什么用？为什么不安全？我们如何正确使用unsafe Pointer？可以作为效率提升的黑魔法吗？"
 ---
 
 {{< music id="1003622" >}}

@@ -17,24 +17,25 @@ description: "Golang slice切片的高级用法有哪些？使用上有什么坑
 
 ## 数据结构
 编译期类型为 [Slice](https://github.com/golang/go/blob/3b2a578166bdedd94110698c971ba8990771eb89/src/cmd/compile/internal/types/type.go#L346)，运行期为 [SliceHeader](https://github.com/golang/go/blob/41d8e61a6b9d8f9db912626eb2bbc535e929fefc/src/reflect/value.go#L1994)，具体结构如下：
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 type SliceHeader struct {
 	Data uintptr
 	Len  int
 	Cap  int
 }
-```
+{{< / highlight >}}
 
 ### 初始化
 #### 使用下标初始化
 <script id="asciicast-466323" src="https://asciinema.org/a/466323.js" async></script>
 ./ssa.html 如下：
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 v11 (8) = Load <*[3]int> v10 v9 (&arr[*[3]int])
 v25 (9) = Const64 <int> [1]
 v26 (9) = Const64 <int> [3]
 v27 (9) = SliceMake <[]int> v11 v25 v26
-```
+{{< / highlight >}}
+
 通过编译期的中间代码，`SliceMake` 主要涉及四个参数：元素类型、数组指针、切片大小和容量，这些运行期的 `SliceHeader` 字段定义相似。使用下标初始化会创建一个指向原数组的切片结构体，并不会拷贝原数据。
 
 #### 通过字面量初始化
@@ -45,7 +46,8 @@ v27 (9) = SliceMake <[]int> v11 v25 v26
 中间代码生成的[walkexpr](https://github.com/golang/go/blob/41d8e61a6b9d8f9db912626eb2bbc535e929fefc/src/cmd/compile/internal/gc/walk.go#L411)函数会根据切片的大小和是否发生逃逸（逃逸分析参考[escape-analysis]({{<ref "/posts/golang-escape-analysis">}})）决定初始化的方式：
 * 当切片非常小且不会发生逃逸时，直接在编译阶段初始化数组，通过下标初始化切片，转成前面提到的`SliceMake`调用，这部分都是在栈上或者静态存储区完成
 * 当切片非常大或者发生逃逸时，通过运行时[makeslice](https://github.com/golang/go/blob/3b2a578166bdedd94110698c971ba8990771eb89/src/runtime/slice.go#L83)在堆上初始化切片
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 func makeslice(et *_type, len, cap int) unsafe.Pointer {
 	mem, overflow := math.MulUintptr(et.size, uintptr(cap))
 	if overflow || mem > maxAlloc || len < 0 || len > cap {
@@ -57,11 +59,11 @@ func makeslice(et *_type, len, cap int) unsafe.Pointer {
 	}
 	return mallocgc(mem, et, true)
 }
-```
+{{< / highlight >}}
 
 ### 如何扩容
 如下面代码，在对长度为0的切片进行append的时候，中间代码会调用[runtime.growslice](https://github.com/golang/go/blob/ac0ba6707c1655ea4316b41d06571a0303cc60eb/src/runtime/slice.go#L125)方法，下面分开来看这个扩容方法。
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 func newSlice() []int {
 	slice := make([]int, 0)
 	slice = append(slice,1)
@@ -69,13 +71,14 @@ func newSlice() []int {
 }
 
 // v34 (9) = StaticCall <mem> {runtime.growslice} [64] v33
-```
+{{< / highlight >}}
 
 代码和计算新容量的公式如下：
 * 若预期新CAP大于两倍的老CAP，则新的容量就是预期新CAP
 * 若预期新CAP小于等于两倍的老CAP，并且老CAP小于1024，则新CAP等于两倍的老CAP（新CAP < 2048）
 * 若预期新CAP小于等于两倍的老CAP，并且老CAP大于等于1024，则老CAP按照自身的25%逐步自增，知道大于预期新CAP，得到新CAP值
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 // It is passed the slice element type, the old slice, and the desired new minimum capacity
 func growslice(et *_type, old slice, cap int) slice {
 ...
@@ -99,7 +102,8 @@ if cap > doublecap {
         }
     }
 }
-```
+{{< / highlight >}}
+
 有了前面计算的新CAP值后，还需要根据切片里元素的大小进行内存对齐，再调整下新CAP值，这部分实现可以看代码，这里不展开。
 然后判断了是否溢出，需要分配的内存是否超出最大值，没问题的话就进行内存分配，并且`memmove`开始挪数据。
 
@@ -108,22 +112,24 @@ if cap > doublecap {
 
 ### 三下标形式初始化
 假设 baseContainer 是一个切片或者数组，则有下面两种初始化派生切片方式，派生切片的长度为 high - low、容量为 max - low ：
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 baseContainer[low : high : max] // 三下标形式
 baseContainer[low : high]       // 双下标形式，等价于 baseContainer[low : high : cap(baseContainer)]
-```
+{{< / highlight >}}
+
 省略规则如下：
 * 如果下标low为零，则它可被省略。此条规则同时适用于双下标形式和三下标形式
 * 如果下标high等于len(baseContainer)，则它可被省略。此条规则同时只适用于双下标形式
 * 三下标形式中的下标max在任何情况下都不可被省略
 
 具体例子，[database/sql]({{<ref "/posts/golang-database-sql">}}) 里计算过期连接的切片使用如下：
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 closing = db.freeConn[:i:i]
 db.freeConn = db.freeConn[i:]
-```
-`db.freeConn[:i:i]` 因为low下标为0可以被忽略，所以这里代表的是len=i且cap=i的派生切片，实际测试：
-```
+{{< / highlight >}}
+
+`db.freeConn[:i:i]` 因为low下标为0可以被忽略，所以这里代表的是len=i且cap=i的派生切片，实际测试如下：
+{{< highlight go "linenos=table,linenostart=1" >}}
 package main
 
 import "log"
@@ -142,11 +148,11 @@ func main() {
 // 2022/02/03 14:11:21 [0 1 2 3 4 5 6 7] 8 8
 // 2022/02/03 14:11:21 [1 2] 2 7
 // 2022/02/03 14:11:21 [1 2 3 4] 4 5
-```
+{{< / highlight >}}
 
 ### 切片拷贝的方式
 可以直接使用`copy`函数，也可以通过`append`函数实现：
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 // 假设元素类型为T。
 func Copy(dest, src []T) int {
 	if len(dest) < len(src) {
@@ -157,11 +163,12 @@ func Copy(dest, src []T) int {
 		return len(src)
 	}
 }
-```
+{{< / highlight >}}
 
 ### 切片克隆的方式
 * 通过自动扩容来克隆，缺点是自动扩容申请了额外可能不需要的空间
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 package main
 
 import "log"
@@ -177,21 +184,25 @@ func main() {
 // 运行结果
 // 2022/02/03 14:54:34 [0 1 2 3 4 5 6 7] , 0xc00000c0a0 , 8 , 8
 // 2022/02/03 14:54:34 [0 1 2 3 4 5 6 7] , 0xc00000c0e0 , 8 , 8
-```
+{{< / highlight >}}
+
 * make + copy，最新版本存在优化 ✅
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 sClone := make([]T, len(s))
 copy(sClone, s)
-```
+{{< / highlight >}}
 
 * make + append
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 sClone := append(make([]T, 0, len(s)), s...)
-```
+{{< / highlight >}}
 
 ### 字符串展开成切片
 据说是个语法糖，字符串的`...`展开。
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 package main
 
 import "fmt"
@@ -208,25 +219,31 @@ func main() {
 	copy(helloWorld2[len(hello):], world) // 语法糖
 	fmt.Println(string(helloWorld2))
 }
-```
+{{< / highlight >}}
 
 ### 删除切片中的一个元素
 * append，保证顺序
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 s = append(s[:i], s[i+1:]...)
-```
+{{< / highlight >}}
+
 * copy，保证顺序，`copy`返回最终拷贝了几个元素
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 s = s[:i + copy(s[i:], s[i+1:])]
-```
+{{< / highlight >}}
+
 * 删除最后一个元素，不保证顺序，[database/sql]({{<ref "/posts/golang-database-sql">}}) 就是这么用的
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 s[i] = s[len(s)-1]
 s = s[:len(s)-1]
-```
+{{< / highlight >}}
 
 ### 带条件删除切片中的元素
-```
+
+{{< highlight go "linenos=table,linenostart=1" >}}
 // 假设T是一个小尺寸类型。
 func DeleteElements(s []T, keep func(T) bool, clear bool) []T {
 	// result := make([]T, 0, len(s))
@@ -244,7 +261,7 @@ func DeleteElements(s []T, keep func(T) bool, clear bool) []T {
 	}
 	return result
 }
-```
+{{< / highlight >}}
 
 ### 其他用法
 * 因为`for-range`出来的val是拷贝出来的，如果切片元素比较大，可以减少拷贝，使用`for`循环通过索引去取

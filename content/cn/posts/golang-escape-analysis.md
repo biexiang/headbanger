@@ -1,5 +1,5 @@
 ---
-title: "Golang Escape Analysis"
+title: "Golang逃逸分析"
 date: 2022-01-30T17:30:52+08:00
 categories: ['Golang','Share']
 draft: true
@@ -7,24 +7,111 @@ keywords: ['Golang','escape analysis','源码阅读','逃逸分析']
 description: "Golang"
 ---
 
+通过`GopherCon TW 2020`的分享来理解下逃逸分析。
+
+{{< bilibili 544231107 >}}
+
+## 为什么Go需要逃逸分析
+Go中声明的变量要么分配到堆上、要么分配到栈上，分配具体策略如下：
+* 堆
+    * 全局存储空间
+    * 共享的存储对象
+    * 被GC管理的存储对象
+* 栈
+    * 函数内部的本地存储空间
+    * 协程自己的栈帧
+    * 私有的存储对象
+    * 帧生命周期内的存储对象
+
+从变量声明角度，堆和栈的差异：
+* 在栈上分配的对象比在堆上快很多
+* 协程可以完全控制自己的栈帧
+* 栈上，没有锁，没有GC，开销少
+
+// 插入asciirec Benchmark 证明栈比堆快，且消耗少
+* small objects
+* huge objects 
+* super huge objects
+
 ## 什么是逃逸分析
 C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分配到栈，要么分配到堆上。同时堆内存对象的生命周期管理给开发人员带来了心智负担，为了降低这方面的心智负担，编程语言支持了垃圾回收，当分配到堆上的对象不再有引用时，就会被回收。显然垃圾回收带来了便利，但是也带来了性能损耗，堆内存对象过多会给垃圾回收带来压力，所以需要尽量减少在堆上的内存分配。        
 逃逸分析（escape analysis）就是在程序编译阶段根据程序代码中的数据流，对代码中哪些变量需要在栈上分配，哪些变量需要在堆上分配进行静态分析的方法。     
+
+## 逃逸分析如何运行
+### 基本概念
+[![HGc7QO.png](https://s4.ax1x.com/2022/02/09/HGc7QO.png)](https://imgtu.com/i/HGc7QO)
+* 逃逸分析在源码库中的代码：[escape.go](https://github.com/golang/go/blob/master/src/cmd/compile/internal/escape/escape.go)  
+* 逃逸的概念
+    * 逃逸会分析声明变量之间的赋值关系
+    * 通常一个变量在以下情况下逃逸
+        * 被`&`取地址
+        * 至少一个相关的变量已经发生逃逸
+
+### 是否逃逸判断
+判断是否逃逸，通过 `data-flow-analysis` 或者其他的基本规则。
+#### 数据流分析
+数据流分析是个有向无环图，它被用来基于AST分析变量之间的转换关系，有以下概念：
+* 点        
+    * 展示所有被声明的变量
+* 边 
+    * 代表变量之间的赋值逻辑
+    * 每条边都有权重，代表取地址/被引用的次数 
+
+具体例子如下图所示：
+[![HGIBFg.png](https://s4.ax1x.com/2022/02/09/HGIBFg.png)](https://imgtu.com/i/HGIBFg)
+
+数据流分析的具体处理流程：
+* 收集所有函数声明的变量，产出点    
+
+[![HGTos1.png](https://s4.ax1x.com/2022/02/09/HGTos1.png)](https://imgtu.com/i/HGTos1)
+
+* 收集所有变量的赋值逻辑，产出边
+
+[![HGTjRH.png](https://s4.ax1x.com/2022/02/09/HGTjRH.png)](https://imgtu.com/i/HGTjRH)
+
+* 开始分析和遍历
+    * 从每个点开始分析
+    * 如果关联的源数据点已经逃逸，并且关联的边路径权重为-1，则当前变量也标识为逃逸
+    * 对于已经逃逸的变量，停止扩张分析
+
+[![HG7SsI.png](https://s4.ax1x.com/2022/02/09/HG7SsI.png)](https://imgtu.com/i/HG7SsI)
+
+[![HG7CeP.png](https://s4.ax1x.com/2022/02/09/HG7CeP.png)](https://imgtu.com/i/HG7CeP)
+
+[![HG7kFS.png](https://s4.ax1x.com/2022/02/09/HG7kFS.png)](https://imgtu.com/i/HG7kFS)
+
+[![HG7QoT.png](https://s4.ax1x.com/2022/02/09/HG7QoT.png)](https://imgtu.com/i/HG7QoT)
+
+[![HG7wTK.png](https://s4.ax1x.com/2022/02/09/HG7wTK.png)](https://imgtu.com/i/HG7wTK)
+
+* 遍历所有遍历，收集逃逸的变量的逃逸原因
+
+[![HG76ld.png](https://s4.ax1x.com/2022/02/09/HG76ld.png)](https://imgtu.com/i/HG76ld)
+
+#### 其他基本规则
+* 大对象
+    * `var` or `:=` 直接声明的变量，大小如果超过10MB，则分配到堆上
+    * 隐式声明，大小超过64KB，则分配到堆上，比如make指定CAP值
+* 切片，若切片通过`make`关键字初始化，并且CAP值传的非常量，则分配到堆上，一定要常量！
+* 映射，如果一个变量被`map`的key or value引用，则分配到堆上
+* 函数入参，若函数入参泄露，则入参逃逸到堆上，Injecting changes to the passed parameters instead of return values back！
+* 闭包外的变量，被闭包内变量取地址赋值使用，闭包内使用的参数一定要显示传进去!
 
 ## 如何确定逃逸分析
 `go build -gcflags "-m -l"` 传入-l是为了关闭inline，屏蔽掉inline对这个过程以及最终代码生成的影响。
 
 ### 哪些场景有逃逸分析
 
+## 如何进行逃逸分析优化我们的项目
+
 ## 如何判断是否内联
 
 ### 什么情况下不应该内联
 
-
-https://github.com/golang/go/blob/master/src/cmd/compile/internal/escape/escape.go
-
-内联优化
-
+## Reference
+* [详解Go内联优化](https://segmentfault.com/a/1190000039146279)
+* [Go: Inlining Strategy & Limitation](https://medium.com/a-journey-with-go/go-inlining-strategy-limitation-6b6d7fc3b1be)
 
 
-https://www.bilibili.com/video/BV1Qi4y1K7ep?from=search&seid=15361282791032949971&spm_id_from=333.337.0.0
+
+

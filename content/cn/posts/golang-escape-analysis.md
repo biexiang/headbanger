@@ -1,23 +1,30 @@
 ---
-title: "Golang逃逸分析"
+title: "Golang 逃逸分析 - 我想要带你去海边"
 date: 2022-01-30T17:30:52+08:00
 categories: ['Golang','Share']
-draft: true
-keywords: ['Golang','escape analysis','源码阅读','逃逸分析']
-description: "Golang"
+draft: false
+keywords: ['Golang','escape analysis','源码阅读','逃逸分析','data-flow-analysis']
+description: "什么是逃逸分析？栈和堆相比优势在哪？逃逸分析中的data-flow-analysis如何运行？哪些场景有逃逸分析？如何判断是否内联？"
 ---
+
+{{< music id="1413863166" >}}
 
 通过`GopherCon TW 2020`的分享来理解下逃逸分析。
 
 {{< bilibili 544231107 >}}
 
-## 为什么Go需要逃逸分析
-Go中声明的变量要么分配到堆上、要么分配到栈上，分配具体策略如下：
-* 堆
+## 什么是逃逸分析
+C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分配到栈，要么分配到堆上，同时堆内存对象的生命周期管理给开发人员带来了心智负担，为了降低这方面的心智负担，有的编程语言比如Go、Java就支持了垃圾回收，当分配到堆上的对象不再被引用时，就会被回收。   
+垃圾回收带来了便利，但是也带来了性能损耗，堆内存对象过多会给垃圾回收带来压力，所以需要尽量减少在堆上的内存分配。        
+逃逸分析（escape analysis）就是在程序编译阶段根据程序代码中的数据流，对代码中哪些变量需要在栈上分配，哪些变量需要在堆上分配进行静态分析的方法。  
+
+## 栈 vs 堆
+Go中声明变量的具体分配策略如下：
+* 堆上
     * 全局存储空间
     * 共享的存储对象
     * 被GC管理的存储对象
-* 栈
+* 栈上
     * 函数内部的本地存储空间
     * 协程自己的栈帧
     * 私有的存储对象
@@ -28,26 +35,22 @@ Go中声明的变量要么分配到堆上、要么分配到栈上，分配具体
 * 协程可以完全控制自己的栈帧
 * 栈上，没有锁，没有GC，开销少
 
-// 插入asciirec Benchmark 证明栈比堆快，且消耗少
-* small objects
-* huge objects 
-* super huge objects
+下面通过Benchmark来证明栈的优势，具体代码参考[escape_analysis_test.go](https://github.com/biexiang/code-snippet/blob/main/escape_analysis/escape_analysis_test.go)：   
+<script id="asciicast-467861" src="https://asciinema.org/a/467861.js" async></script>
 
-## 什么是逃逸分析
-C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分配到栈，要么分配到堆上。同时堆内存对象的生命周期管理给开发人员带来了心智负担，为了降低这方面的心智负担，编程语言支持了垃圾回收，当分配到堆上的对象不再有引用时，就会被回收。显然垃圾回收带来了便利，但是也带来了性能损耗，堆内存对象过多会给垃圾回收带来压力，所以需要尽量减少在堆上的内存分配。        
-逃逸分析（escape analysis）就是在程序编译阶段根据程序代码中的数据流，对代码中哪些变量需要在栈上分配，哪些变量需要在堆上分配进行静态分析的方法。     
 
 ## 逃逸分析如何运行
 ### 基本概念
+* 逃逸分析在源码库中的代码：[escape.go](https://github.com/golang/go/blob/master/src/cmd/compile/internal/escape/escape.go)，编译器所处的阶段如下图所示：
+
 [![HGc7QO.png](https://s4.ax1x.com/2022/02/09/HGc7QO.png)](https://imgtu.com/i/HGc7QO)
-* 逃逸分析在源码库中的代码：[escape.go](https://github.com/golang/go/blob/master/src/cmd/compile/internal/escape/escape.go)  
 * 逃逸的概念
     * 逃逸会分析声明变量之间的赋值关系
     * 通常一个变量在以下情况下逃逸
         * 被`&`取地址
         * 至少一个相关的变量已经发生逃逸
 
-### 是否逃逸判断
+### 如何判断释放逃逸
 判断是否逃逸，通过 `data-flow-analysis` 或者其他的基本规则。
 #### 数据流分析
 数据流分析是个有向无环图，它被用来基于AST分析变量之间的转换关系，有以下概念：
@@ -84,7 +87,7 @@ C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分
 
 [![HG7wTK.png](https://s4.ax1x.com/2022/02/09/HG7wTK.png)](https://imgtu.com/i/HG7wTK)
 
-* 遍历所有遍历，收集逃逸的变量的逃逸原因
+* 遍历所有变量，收集已逃逸变量的逃逸原因
 
 [![HG76ld.png](https://s4.ax1x.com/2022/02/09/HG76ld.png)](https://imgtu.com/i/HG76ld)
 
@@ -97,7 +100,8 @@ C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分
 * 函数入参，若函数入参泄露，则入参逃逸到堆上，Injecting changes to the passed parameters instead of return values back！
 * 闭包外的变量，被闭包内变量取地址赋值使用，闭包内使用的参数一定要显示传进去!
 
-## 如何确定逃逸分析
+
+<!-- ## 如何确定逃逸分析
 `go build -gcflags "-m -l"` 传入-l是为了关闭inline，屏蔽掉inline对这个过程以及最终代码生成的影响。
 
 ### 哪些场景有逃逸分析
@@ -106,7 +110,7 @@ C/C++没有垃圾回收机制，都是开发人员进行内存分配，要么分
 
 ## 如何判断是否内联
 
-### 什么情况下不应该内联
+### 什么情况下不应该内联 -->
 
 ## Reference
 * [详解Go内联优化](https://segmentfault.com/a/1190000039146279)

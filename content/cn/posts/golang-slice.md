@@ -1,5 +1,5 @@
 ---
-title: "关于Golang Slice，你知道的不多"
+title: "关于 Golang Slice，你知道的不多"
 date: 2022-01-30T17:18:44+08:00
 categories: ['Golang','Share']
 draft: false

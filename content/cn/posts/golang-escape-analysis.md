@@ -100,6 +100,7 @@ Go中声明变量的具体分配策略如下：
 * 函数入参，若函数入参泄露，则入参逃逸到堆上，Injecting changes to the passed parameters instead of return values back！
 * 闭包外的变量，被闭包内变量取地址赋值使用，闭包内使用的参数一定要显示传进去!
 
+测试代码地址：[escape_analysis.go](https://github.com/biexiang/code-snippet/blob/main/escape_analysis/test/escape_analysis.go)
 {{< highlight go "linenos=table,linenostart=1" >}}
 package main
 

@@ -100,7 +100,11 @@ Go中声明变量的具体分配策略如下：
 * 函数入参，若函数入参泄露，则入参逃逸到堆上，Injecting changes to the passed parameters instead of return values back！
 * 闭包外的变量，被闭包内变量取地址赋值使用，闭包内使用的参数一定要显示传进去!
 
-测试代码地址：[escape_analysis.go](https://github.com/biexiang/code-snippet/blob/main/escape_analysis/test/escape_analysis.go)
+上面规则的具体测试代码：[escape_analysis.go](https://github.com/biexiang/code-snippet/blob/main/escape_analysis/test/escape_analysis.go)，通过`-gcflag`参数进行逃逸分析检查：
+```
+ go build -gcflags '-l -m' escape_analysis.go
+```
+
 {{< highlight go "linenos=table,linenostart=1" >}}
 package main
 
@@ -190,16 +194,72 @@ func main() {
 {{< / highlight >}}
 
 
-<!-- ## 如何确定逃逸分析
-`go build -gcflags "-m -l"` 传入-l是为了关闭inline，屏蔽掉inline对这个过程以及最终代码生成的影响。
+## 关于内联
+上面逃逸分析命令中，`-gcflags "-m -l"`的 -l 就是全局禁止内联的含义，所以什么是内联呢，和前端CSS的内联样式一样吗。
+### 什么是内联
+在Go中，一个协程会有一个单独的栈，栈又会包含多个栈帧，栈帧是函数调用时在栈上为函数所分配的区域。但其实，函数调用是存在一些固定开销的，例如维护帧指针寄存器BP、栈溢出检测等。因此，对于一些代码行比较少的函数，编译器倾向于将它们在编译期展开从而消除函数调用，这种行为就是内联。			
 
-### 哪些场景有逃逸分析
+### 是否内联性能对比
+函数非内联可以添加`//go:noinline`注释来实现，从下面的Benchmark可以看出来内联可以带来性能提升。	
 
-## 如何进行逃逸分析优化我们的项目
+{{< highlight go "linenos=table,linenostart=1" >}}
+package inline_optimize
 
-## 如何判断是否内联
+import "testing"
 
-### 什么情况下不应该内联 -->
+//go:noinline
+func maxNoInline(a, b int) int {
+	if a < b {
+		return b
+	}
+	return a
+}
+
+func maxInline(a, b int) int {
+	if a < b {
+		return b
+	}
+	return a
+}
+
+func BenchmarkNoInline(b *testing.B) {
+	x, y := 1, 2
+	b.ResetTimer()
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		_ = maxNoInline(x, y)
+	}
+}
+
+func BenchmarkInline(b *testing.B) {
+	x, y := 1, 2
+	b.ResetTimer()
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		_ = maxInline(x, y)
+	}
+}
+
+// BenchmarkNoInline-12            1000000000               1.135 ns/op           0 B/op          0 allocs/op
+// BenchmarkInline-12              1000000000               0.2419 ns/op          0 B/op          0 allocs/op
+
+{{< / highlight >}}
+
+通过`-gcflags="-m -m"`参数，可以查看编译器的优化策略，搜索`unhandled op`关键字可以在[源码inl.go](https://github.com/golang/go/blob/b38ab0ac5f78ac03a38052018ff629c03e36b864/src/cmd/compile/internal/inline/inl.go#L366)中发现目前只有下面几个关键字不支持内联：
+```
+case ir.OSELECT,
+	ir.OGO,
+	ir.ODEFER,
+	ir.ODCLTYPE, // can't print yet
+	ir.OTAILCALL:
+	v.reason = "unhandled op " + n.Op().String()
+	return true
+```
+同时内联还要求具体代码量不要太多。
+
+### 什么情况下不应该内联
+源码里有蛮多`//go:noinline`注释，目前还没理解什么情况下不应该内联。
+
 
 ## Reference
 * [详解Go内联优化](https://segmentfault.com/a/1190000039146279)

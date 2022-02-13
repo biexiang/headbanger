@@ -1,5 +1,5 @@
 ---
-title: "Golang 逃逸分析 - 我想要带你去海边"
+title: "Golang 逃逸分析"
 date: 2022-01-30T17:30:52+08:00
 categories: ['Golang','Share']
 draft: false

@@ -6,7 +6,6 @@ hide: true
 categories: ['TODO']
 ---
 
-* Golang-GC
 * Golang-Sort
 * 其他Golang面试常见的问题
     https://juejin.cn/user/3193430133968135

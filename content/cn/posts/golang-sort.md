@@ -10,6 +10,9 @@ description: "Golang Sort包都用到了哪些排序算法？什么情况下用S
 ## 复习知识
 对于这题[912. 排序数组](https://leetcode-cn.com/problems/sort-an-array/)，用以下解法，复习下。
 ### 快速排序
+快排怎么实现的，哪里用到了堆排序？
+
+`maxDepth`获取完全二叉树的最大深度
 
 ### 堆排序
 
@@ -30,3 +33,4 @@ description: "Golang Sort包都用到了哪些排序算法？什么情况下用S
 ## Reference
 * [sort 包源码分析](https://learnku.com/articles/30404)
 * [数据结构中排序为什么要考虑稳定性？](https://www.zhihu.com/question/46809714)
+* [...](https://zhuanlan.zhihu.com/p/97965012)

@@ -22,10 +22,30 @@ description: "Golang Sort包都用到了哪些排序算法？什么情况下用S
 具体代码参考：[insert_sort.go](https://github.com/biexiang/code-snippet/blob/main/sortalgo/insert_sort.go)
 
 ## 代码结构
-快排怎么实现的，哪里用到了堆排序？
-`maxDepth`获取完全二叉树的最大深度
+```
+example_interface_test.go
+example_keys_test.go
+example_multi_test.go
+example_search_test.go
+example_test.go
+example_wrapper_test.go
+export_test.go
+genzfunc.go                 // 通过 go:generate go run genzfunc.go 生成zfuncversion.go
+search.go                   // 二分查找
+search_test.go
+slice.go                    // slice sort func
+slice_go113.go              // 方法别名 + 构建约束
+slice_go14.go               // 方法别名 + 构建约束
+slice_go18.go               // 方法别名 + 构建约束
+sort.go                     // 接口 + 稳定排序 + 不稳定排序
+sort_test.go
+zfuncversion.go             // sort中的某些方法，通过genfunc.go生成代码
+```
+`go:generate`在这里主要服务于slice的排序，因为slice的排序主要依赖`less`和`swap`这对函数，所以搞了个codegen来少些点代码？
 
 ## 代码阅读
+快排怎么实现的，哪里用到了堆排序？
+`maxDepth`获取完全二叉树的最大深度
 
 ### Sort函数
 快排怎么实现的，哪里用到了堆排序？

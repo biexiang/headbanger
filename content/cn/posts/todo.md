@@ -16,13 +16,6 @@ categories: ['TODO']
 * 平衡树 https://leetcode-cn.com/problems/balanced-binary-tree/
 
 
-## 面试向TODO
-* [Go 语言面试精选](https://www.zhihu.com/column/c_1347495366519119872)
-* [2020 Golang字节面试经验分享](https://zhuanlan.zhihu.com/p/132813717)
-* [【字节跳动】Go岗-后端高频面试题](https://www.iamshuaidi.com/3584.html)
-* [字节跳动Go开发面经](https://www.iamshuaidi.com/bytedance-go)
-* [腾讯Go开发面经](https://www.iamshuaidi.com/tencent-go)
-
 etcd
     micro服务发现
     raft有什么特点
@@ -69,3 +62,9 @@ Skills
 - 熟悉TCP协议/HTTP网络协议/网络编程
 - 熟悉Golang底层原理，slice/map/channel/gc等源码
 - 熟悉MySQL/Redis等常用中间件
+
+
+
+【百度】苏孟梁，您好，百度在线网络技术（北京）有限公司邀请您就个人云部_后端研发工程师职位进行一次视频面试。面试时间：2022/04/20 周三11:00。联系人：乌尼尔 联系邮箱：wunier01@baidu.com  期待您的答复，面试答复链接：https://bsurl.cn/v2/fjnOEEQY
+
+https://infoflow.baidu.com/meeting/invite?id=e2183dc609054b322ca3d336c9c449b6

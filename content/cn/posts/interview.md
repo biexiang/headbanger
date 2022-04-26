@@ -52,3 +52,4 @@ hide: true
 
 ### 网络
 * [说说UDP和TCP的区别及应用场景](https://segmentfault.com/a/1190000021815671)
+* [哪5种IO模型？什么是select/poll/epoll？同步异步阻塞非阻塞有啥区别](https://www.cnblogs.com/yangjianyong-bky/articles/14608585.html)

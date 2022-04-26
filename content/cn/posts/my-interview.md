@@ -68,3 +68,82 @@ func main() {
 }
 
 {{< / highlight >}}
+
+
+### 探探
+* 对于用户态和内核态的理解: [从根上理解用户态与内核态](https://segmentfault.com/a/1190000039774784)
+* 什么时候发生上下文切换: [什么是上下文切换](https://luffy997.github.io/2021/07/19/%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2/#%E4%B8%8A%E4%B8%8B%E6%96%87)
+* 进程和线程都是如何通信的: [进程间通信和线程间通信的几种方式](https://www.cnblogs.com/fanguangdexiaoyuer/p/10834737.html)
+* 进程和线程自有的资源有哪些: [线程间到底共享了哪些进程资源](https://cloud.tencent.com/developer/article/1768025)
+* 僵尸进程和孤儿进程的区别是啥: [僵尸进程和孤儿进程有了解过吗](https://xie.infoq.cn/article/3a980c8f6a5a0a7a26cc3d2e8)
+* 对于fork的了解，以及父子进程如何通信和共享: [进程间通信](https://akaedu.github.io/book/ch30s04.html)
+* 一致性hash，负载均衡算法了解哪些: [memcached一致性hash算法原理 ](https://www.cnblogs.com/hjwublog/p/5625275.html)
+* 减少time_wait有哪些方法
+* 关系型数据库和非关系型数据库的理解
+* [myisam和innodb的区别](https://www.zhihu.com/question/20596402)
+* 对于事务的理解
+* 事务的acid属性分别是啥
+* [B树、B+树、LSM树以及其典型应用场景](https://blog.csdn.net/u010853261/article/details/78217823)
+* [WAL理解](https://www.cnblogs.com/xuwc/p/14037750.html)
+* k个一组链表反转
+
+{{< highlight go "linenos=table,linenostart=1" >}}
+package main
+
+import "log"
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func _reverse(head, tail *ListNode) (*ListNode, *ListNode) {
+	prev := tail.Next
+	p := head
+	for prev != tail {
+		next := p.Next
+		p.Next = prev
+		prev = p
+		p = next
+	}
+	return tail, head
+}
+
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	var dummyNode = &ListNode{Next: head}
+	prev := dummyNode
+	for head != nil {
+		tail := prev
+		for i := 0; i < k; i++ {
+			tail = tail.Next
+			if tail.Next == nil {
+				return dummyNode.Next
+			}
+		}
+		next := tail.Next
+		head, tail = _reverse(head, tail)
+		prev.Next = head
+		tail.Next = next
+		prev = tail
+		head = tail.Next
+	}
+	return dummyNode.Next
+}
+
+func _createTestNodes(idx int, nodes []int) *ListNode {
+	if idx >= len(nodes) {
+		return nil
+	}
+	node := &ListNode{
+		Val:  nodes[idx],
+		Next: _createTestNodes(idx+1, nodes),
+	}
+	return node
+}
+
+func main() {
+	topNodes := _createTestNodes(0, []int{1, 2, 3, 4, 5})
+	o := reverseKGroup(topNodes, 2)
+	log.Println(o)
+}
+{{< / highlight >}}

@@ -19,6 +19,9 @@ hide: true
 * [MySQL 性能优化神器 Explain 使用分析](https://segmentfault.com/a/1190000008131735)
 * [布隆过滤器/HyperLogLog/位图](https://hogwartsrico.github.io/2020/06/08/BloomFilter-HyperLogLog-BitMap/index.html)
 * [为什么 MySQL 使用 B+ 树](https://draveness.me/whys-the-design-mysql-b-plus-tree/)
+* [什么是 MySQL 的全局锁、表锁、行锁](https://segmentfault.com/a/1190000039848201)
+* [MySQL各种“Buffer”之Change Buffer](https://www.modb.pro/db/112469)
+* [MySQL事务隔离级别和实现原理](https://zhuanlan.zhihu.com/p/117476959)
 
 ### Redis
 * [Redis，八股文！](https://jishuin.proginn.com/p/763bfbd66f14)

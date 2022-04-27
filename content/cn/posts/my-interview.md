@@ -23,6 +23,7 @@ categories: ['Algorithm','Leetcode']
 * grpc的4种实现方式：[既然有 HTTP 请求，为什么还要用 RPC 调用？](https://www.zhihu.com/question/41609070)
 * map什么时候扩容，为什么会出现稀疏桶，syncMap和自己加锁实现有啥区别: [Go 1.9 sync.Map揭秘](https://colobu.com/2017/07/11/dive-into-sync-Map/)
 * rr 如何解决幻读问题: [Innodb 中 RR 隔离级别能否防止幻读?](https://github.com/Yhzhtk/note/issues/42)
+* [五分钟搞懂MySQL索引下推](https://www.cnblogs.com/three-fighter/p/15246577.html)
 * 为啥Go 1.14解决了抢占式调度: [go1.14基于信号的抢占式调度实现原理](https://xiaorui.cc/archives/6535)
 * 切片问题
 
@@ -86,6 +87,7 @@ func main() {
 * [B树、B+树、LSM树以及其典型应用场景](https://blog.csdn.net/u010853261/article/details/78217823)
 * [WAL理解](https://www.cnblogs.com/xuwc/p/14037750.html)
 * k个一组链表反转
+* [TCP和Udp的区别是什么？](https://www.zhihu.com/question/47378601/answer/276353285)
 
 {{< highlight go "linenos=table,linenostart=1" >}}
 package main

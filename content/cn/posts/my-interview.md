@@ -86,8 +86,8 @@ func main() {
 * 事务的acid属性分别是啥
 * [B树、B+树、LSM树以及其典型应用场景](https://blog.csdn.net/u010853261/article/details/78217823)
 * [WAL理解](https://www.cnblogs.com/xuwc/p/14037750.html)
-* k个一组链表反转
 * [TCP和Udp的区别是什么？](https://www.zhihu.com/question/47378601/answer/276353285)
+* k个一组链表反转
 
 {{< highlight go "linenos=table,linenostart=1" >}}
 package main
@@ -149,3 +149,8 @@ func main() {
 	log.Println(o)
 }
 {{< / highlight >}}
+
+
+
+### 虾皮
+* 数组和链表的区别

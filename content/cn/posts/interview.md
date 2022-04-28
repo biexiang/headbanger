@@ -52,6 +52,8 @@ hide: true
 * raft paxos 一致性选举
 * [23道 K8S 面试题](https://www.modb.pro/db/99717)
 * [面试必备 (背)--Go 语言八股文系列！](https://xie.infoq.cn/article/ac87ac5f9e8def9f91b817bf9)
+* [你说说互斥锁、自旋锁、读写锁、悲观锁、乐观锁的应用场景](https://cloud.tencent.com/developer/article/1700079)
+
 
 ### 网络
 * [说说UDP和TCP的区别及应用场景](https://segmentfault.com/a/1190000021815671)

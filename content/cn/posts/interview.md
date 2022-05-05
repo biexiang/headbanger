@@ -22,7 +22,7 @@ hide: true
 * [什么是 MySQL 的全局锁、表锁、行锁](https://segmentfault.com/a/1190000039848201)
 * [MySQL各种“Buffer”之Change Buffer](https://www.modb.pro/db/112469)
 * [MySQL事务隔离级别和实现原理](https://zhuanlan.zhihu.com/p/117476959)
-
+* [五分钟搞懂MySQL索引下推](https://www.cnblogs.com/three-fighter/p/15246577.html)
 ### Redis
 * [Redis，八股文！](https://jishuin.proginn.com/p/763bfbd66f14)
 * [Redis 通过巧妙地使用数据结构节省内存空间](https://blog.csdn.net/qq_39751320/article/details/108862584)
@@ -31,6 +31,12 @@ hide: true
 * [如何应对缓存问题](https://gongfukangee.github.io/2019/04/02/Cache/#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F)
 * [《面试八股文》之 Redis 16卷](https://juejin.cn/post/6989153296808149029)
 * [5个基础数据结构的实现原理]()
+* [为什么 Redis 选择单线程模型](https://draveness.me/whys-the-design-redis-single-thread/)
+* [为什么Redis要比Memcached更火？](https://cloud.tencent.com/developer/article/1697819)
+
+### Nginx
+* [都是事件驱动，为什么Nginx的性能远高于Redis？](https://www.taohui.tech/2020/12/14/nginx/%E9%83%BD%E6%98%AF%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88nginx%E7%9A%84%E6%80%A7%E8%83%BD%E8%BF%9C%E9%AB%98%E4%BA%8Eredis%EF%BC%9F/)
+
 
 ### ElasticSearch
 * [倒排/全文索引](https://zhuanlan.zhihu.com/p/33671444)
@@ -53,8 +59,11 @@ hide: true
 * [23道 K8S 面试题](https://www.modb.pro/db/99717)
 * [面试必备 (背)--Go 语言八股文系列！](https://xie.infoq.cn/article/ac87ac5f9e8def9f91b817bf9)
 * [你说说互斥锁、自旋锁、读写锁、悲观锁、乐观锁的应用场景](https://cloud.tencent.com/developer/article/1700079)
+* [协程究竟比线程能省多少开销？](https://segmentfault.com/a/1190000037676163)
+
 
 
 ### 网络
 * [说说UDP和TCP的区别及应用场景](https://segmentfault.com/a/1190000021815671)
 * [哪5种IO模型？什么是select/poll/epoll？同步异步阻塞非阻塞有啥区别](https://www.cnblogs.com/yangjianyong-bky/articles/14608585.html)
+* [彻底搞懂HTTPS的加密原理](https://zhuanlan.zhihu.com/p/43789231)

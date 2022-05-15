@@ -9,6 +9,7 @@ hide: true
 ## 面经
 * [字节跳动Go开发面经](https://www.iamshuaidi.com/bytedance-go)
 * [腾讯Go开发面经](https://www.iamshuaidi.com/tencent-go)
+* [程序员面试题](https://www.mianshi.work/?company=toutiao)
 
 ### MySQL
 * [MySQL八股文连环45问（背诵版）](https://zhuanlan.zhihu.com/p/403656116)
@@ -23,6 +24,8 @@ hide: true
 * [MySQL各种“Buffer”之Change Buffer](https://www.modb.pro/db/112469)
 * [MySQL事务隔离级别和实现原理](https://zhuanlan.zhihu.com/p/117476959)
 * [五分钟搞懂MySQL索引下推](https://www.cnblogs.com/three-fighter/p/15246577.html)
+
+
 ### Redis
 * [Redis，八股文！](https://jishuin.proginn.com/p/763bfbd66f14)
 * [Redis 通过巧妙地使用数据结构节省内存空间](https://blog.csdn.net/qq_39751320/article/details/108862584)
@@ -33,10 +36,13 @@ hide: true
 * [5个基础数据结构的实现原理]()
 * [为什么 Redis 选择单线程模型](https://draveness.me/whys-the-design-redis-single-thread/)
 * [为什么Redis要比Memcached更火？](https://cloud.tencent.com/developer/article/1697819)
+* [Redis为什么用跳表而不用平衡树？](https://zhuanlan.zhihu.com/p/23370124)、[redis为什么选择了跳跃表而不是红黑树](https://blog.csdn.net/qq9808/article/details/104865385)
+* [说一说Redis事务是否满足ACID以及WATCH监视命令的作用](https://blog.csdn.net/qq_39794062/article/details/120426301)
+
 
 ### Nginx
 * [都是事件驱动，为什么Nginx的性能远高于Redis？](https://www.taohui.tech/2020/12/14/nginx/%E9%83%BD%E6%98%AF%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88nginx%E7%9A%84%E6%80%A7%E8%83%BD%E8%BF%9C%E9%AB%98%E4%BA%8Eredis%EF%BC%9F/)
-
+* [深入剖析Nginx负载均衡算法](https://www.taohui.tech/2021/02/08/nginx/%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AE%97%E6%B3%95/)
 
 ### ElasticSearch
 * [倒排/全文索引](https://zhuanlan.zhihu.com/p/33671444)
@@ -48,7 +54,7 @@ hide: true
 * [怎么理解 Kafka 消费者与消费组之间的关系?](https://segmentfault.com/a/1190000039125247)
 * [图解 ZooKeeper 的选举机制](https://segmentfault.com/a/1190000039385874)
 * [原来 8 张图，就可以搞懂「零拷贝」了](https://www.cnblogs.com/xiaolincoding/p/13719610.html)
-
+* [kafka的副本同步机制 HW和LEO](https://www.cfanz.cn/mobile/resource/detail/lBAxElXWnQjmO)
 
 ### Go
 * Go1.14基于信号的抢占式调度
@@ -62,8 +68,19 @@ hide: true
 * [协程究竟比线程能省多少开销？](https://segmentfault.com/a/1190000037676163)
 
 
-
 ### 网络
 * [说说UDP和TCP的区别及应用场景](https://segmentfault.com/a/1190000021815671)
 * [哪5种IO模型？什么是select/poll/epoll？同步异步阻塞非阻塞有啥区别](https://www.cnblogs.com/yangjianyong-bky/articles/14608585.html)
 * [彻底搞懂HTTPS的加密原理](https://zhuanlan.zhihu.com/p/43789231)
+
+
+### 微服务
+* [微服务注册中心原理，看这篇就够了！](https://www.cnblogs.com/haha12/p/11532910.html)
+
+
+### 开放题
+* [面试官问：如何设计一个高并发系统？](https://blog.51cto.com/u_15420855/4713743)
+* [关于电商平台订单分库分表那些事](https://www.cnblogs.com/ZJOE80/p/15763170.html)
+* ES+HBase的查询方案
+* [系统设计 | 榜单系统](https://zhuanlan.zhihu.com/p/477724438)
+

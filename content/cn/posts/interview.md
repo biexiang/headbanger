@@ -24,6 +24,8 @@ hide: true
 * [MySQL各种“Buffer”之Change Buffer](https://www.modb.pro/db/112469)
 * [MySQL事务隔离级别和实现原理](https://zhuanlan.zhihu.com/p/117476959)
 * [五分钟搞懂MySQL索引下推](https://www.cnblogs.com/three-fighter/p/15246577.html)
+* [Mysql - 范围查询过程分析底层的锁实现机制](https://blog.csdn.net/it_lihongmin/article/details/115337587)
+* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
 ### Redis
@@ -38,6 +40,8 @@ hide: true
 * [为什么Redis要比Memcached更火？](https://cloud.tencent.com/developer/article/1697819)
 * [Redis为什么用跳表而不用平衡树？](https://zhuanlan.zhihu.com/p/23370124)、[redis为什么选择了跳跃表而不是红黑树](https://blog.csdn.net/qq9808/article/details/104865385)
 * [说一说Redis事务是否满足ACID以及WATCH监视命令的作用](https://blog.csdn.net/qq_39794062/article/details/120426301)
+* [Redis中的hash扩容渐进式rehash过程](https://zhuanlan.zhihu.com/p/400625895)
+
 
 
 ### Nginx
@@ -55,6 +59,8 @@ hide: true
 * [图解 ZooKeeper 的选举机制](https://segmentfault.com/a/1190000039385874)
 * [原来 8 张图，就可以搞懂「零拷贝」了](https://www.cnblogs.com/xiaolincoding/p/13719610.html)
 * [kafka的副本同步机制 HW和LEO](https://www.cfanz.cn/mobile/resource/detail/lBAxElXWnQjmO)
+* [消息队列面试热点：如何保证消息的顺序性？](https://juejin.cn/post/6844904000098140173)
+
 
 ### Go
 * Go1.14基于信号的抢占式调度

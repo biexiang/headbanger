@@ -60,6 +60,8 @@ hide: true
 * [原来 8 张图，就可以搞懂「零拷贝」了](https://www.cnblogs.com/xiaolincoding/p/13719610.html)
 * [kafka的副本同步机制 HW和LEO](https://www.cfanz.cn/mobile/resource/detail/lBAxElXWnQjmO)
 * [消息队列面试热点：如何保证消息的顺序性？](https://juejin.cn/post/6844904000098140173)
+* [kafka如何解决重复消费问题](https://blog.51cto.com/u_15281317/3007783)
+* [kafka新增topic对应的partition数如何决策](https://juejin.cn/post/6988344277654847501)
 
 
 ### Go
@@ -82,6 +84,7 @@ hide: true
 
 ### 微服务
 * [微服务注册中心原理，看这篇就够了！](https://www.cnblogs.com/haha12/p/11532910.html)
+* [Kubernetes (K8S) 3 小时快速上手 + 实践，无废话纯干货](https://www.bilibili.com/video/BV1Tg411P7EB?p=7&spm_id_from=444.41.top_right_bar_window_history.content.click)
 
 
 ### 开放题
@@ -89,4 +92,4 @@ hide: true
 * [关于电商平台订单分库分表那些事](https://www.cnblogs.com/ZJOE80/p/15763170.html)
 * ES+HBase的查询方案
 * [系统设计 | 榜单系统](https://zhuanlan.zhihu.com/p/477724438)
-
+* [别瞎搞了！微博、知乎就是这么设计Feed流系统的~](https://jishuin.proginn.com/p/763bfbd5468b)

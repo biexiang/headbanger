@@ -26,7 +26,7 @@ hide: true
 * [五分钟搞懂MySQL索引下推](https://www.cnblogs.com/three-fighter/p/15246577.html)
 * [Mysql - 范围查询过程分析底层的锁实现机制](https://blog.csdn.net/it_lihongmin/article/details/115337587)
 * [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
-
+* [数据库IO性能，及InnoDB与MyISAM引擎对比](https://blog.csdn.net/weixin_38744051/article/details/86466908)
 
 ### Redis
 * [Redis，八股文！](https://jishuin.proginn.com/p/763bfbd66f14)
@@ -62,6 +62,7 @@ hide: true
 * [消息队列面试热点：如何保证消息的顺序性？](https://juejin.cn/post/6844904000098140173)
 * [kafka如何解决重复消费问题](https://blog.51cto.com/u_15281317/3007783)
 * [kafka新增topic对应的partition数如何决策](https://juejin.cn/post/6988344277654847501)
+* [图解削峰限流技术，RabbitMq 消息队列解决高并发，高并发下削峰限流技术，主流消息队列对比](https://blog.csdn.net/penggerhe/article/details/108404243)、[消息队列 解耦、异步、削峰、限流](https://blog.csdn.net/qq_36390914/article/details/108359791)、[削峰填谷，你只知道消息队列？](https://developer.51cto.com/article/676653.html?edm)
 
 
 ### Go
@@ -74,12 +75,50 @@ hide: true
 * [面试必备 (背)--Go 语言八股文系列！](https://xie.infoq.cn/article/ac87ac5f9e8def9f91b817bf9)
 * [你说说互斥锁、自旋锁、读写锁、悲观锁、乐观锁的应用场景](https://cloud.tencent.com/developer/article/1700079)
 * [协程究竟比线程能省多少开销？](https://segmentfault.com/a/1190000037676163)
+* 切片扩容
+
+{{< highlight go "linenos=table,linenostart=1" >}}
+package main
+
+import "fmt"
+
+func main() {
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s) // len=6 cap=6 [2, 3, 5, 7, 11, 13]
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s) // len=0 cap=6 []
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s) // len=4 cap=6 [2,3,5,7]
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s) // len=2 cap=4 [5,7]
+
+	ss := []int{2, 3, 5, 7, 11, 13}
+	s = ss[2:3]
+	printSlice(s) // len=1 cap=4 [5]
+	s[0] = 20
+	printSlice(ss) //  len=6 cap=6 [2,3,20,7,11,13]
+	s = append(s, 15, 17, 19)
+	printSlice(s)  // len=4 cap=4 [20,15,17,19]
+	printSlice(ss) // len=6 cap=6 [2,3,20,15,17,19]
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+{{< / highlight >}}
 
 
 ### 网络
 * [说说UDP和TCP的区别及应用场景](https://segmentfault.com/a/1190000021815671)
 * [哪5种IO模型？什么是select/poll/epoll？同步异步阻塞非阻塞有啥区别](https://www.cnblogs.com/yangjianyong-bky/articles/14608585.html)
 * [彻底搞懂HTTPS的加密原理](https://zhuanlan.zhihu.com/p/43789231)
+* [HTTP/2.0 原理！与 1.x 相比，到底优化了什么？](https://blog.csdn.net/plokmju88/article/details/118688462)
 
 
 ### 微服务
@@ -93,3 +132,11 @@ hide: true
 * ES+HBase的查询方案
 * [系统设计 | 榜单系统](https://zhuanlan.zhihu.com/p/477724438)
 * [别瞎搞了！微博、知乎就是这么设计Feed流系统的~](https://jishuin.proginn.com/p/763bfbd5468b)
+
+
+### 其他
+* [C语言 strlen(str)和sizeof(arr)的区别](https://blog.csdn.net/wang123456___/article/details/114736344)
+* [“字节序”是个什么鬼？](https://zhuanlan.zhihu.com/p/21388517)
+* [面试官：什么是死锁？怎么排查死锁？怎么避免死锁？](https://segmentfault.com/a/1190000039753805?utm_source=sf-similar-article)
+* [操作系统调度如何实现？](https://www.zhihu.com/question/25527028)
+* [高并发系统限流-漏桶算法和令牌桶算法](https://www.cnblogs.com/xuwc/p/9123078.html)

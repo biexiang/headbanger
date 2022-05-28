@@ -6,6 +6,8 @@ draft: false
 hide: true
 ---
 
+{{% mdlist file="/layouts/partials/interview_list.md" %}}
+
 ### MySQL
 * [MySQL八股文连环45问（背诵版）](https://zhuanlan.zhihu.com/p/403656116)
 * [MyISAM与InnoDB 数据结构的区别](https://zhuanlan.zhihu.com/p/343746709)

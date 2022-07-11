@@ -1,18 +1,21 @@
 ---
 title: "知识补充区"
-date: 2022-01-16T22:07:24+08:00
-draft: true
-categories: ['Work']
-keywords: ['Work']
+date: 2022-07-01T22:07:24+08:00
+draft: false
+categories: ['work']
+keywords: ['work']
 description: "工作知识补充区"
 ---
+
+{{< music id="27588968" >}}
+
 
 ### Git
 * [GitHub中origin和upstream的区别](https://blog.51cto.com/u_15127588/4728372)
 * [Git commit 使用及规范](https://www.jianshu.com/p/ff4f98695c2c)
 * [How to convert `git:` urls to `http:` urls](https://stackoverflow.com/questions/1722807/how-to-convert-git-urls-to-http-urls)
 * [Git通过配置config维护多个账号，区分个人账号和公司账号](https://blog.csdn.net/CoderBruis/article/details/120674608)
-* [git commit](https://github.com/Zhengqbbb/cz-git)
+* [cz commit](https://github.com/Zhengqbbb/cz-git)
 
 
 ### Golang

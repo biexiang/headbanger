@@ -1,11 +1,14 @@
 ---
 title: "知识补充区"
-date: 2022-01-16T22:07:24+08:00
-draft: true
-categories: ['Work']
-keywords: ['Work']
+date: 2022-07-01T22:07:24+08:00
+draft: false
+categories: ['work']
+keywords: ['work']
 description: "工作知识补充区"
 ---
+
+{{< music id="27588968" >}}
+
 
 ### Git
 * [GitHub中origin和upstream的区别](https://blog.51cto.com/u_15127588/4728372)

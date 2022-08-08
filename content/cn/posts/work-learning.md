@@ -13,6 +13,7 @@ description: "工作知识补充区"
 * [How to convert `git:` urls to `http:` urls](https://stackoverflow.com/questions/1722807/how-to-convert-git-urls-to-http-urls)
 * [Git通过配置config维护多个账号，区分个人账号和公司账号](https://blog.csdn.net/CoderBruis/article/details/120674608)
 * [git commit](https://github.com/Zhengqbbb/cz-git)
+* [Gitmoji](https://github.com/carloscuesta/gitmoji)
 
 
 ### Golang
@@ -20,6 +21,7 @@ description: "工作知识补充区"
 * [Go Plugin](https://tonybai.com/2021/07/19/understand-go-plugin/)
 * [Go基础0x02-go build -tags使用](https://www.cnblogs.com/JasonCeng/p/15134495.html)
 * [Gob序列化](https://www.cnblogs.com/yinzhengjie2020/p/12735277.html)
+* [ants协程池](https://github.com/panjf2000/ants)
 * 正则替换
 
 ```
@@ -61,6 +63,9 @@ func replace(text string, replacement map[string]string) string {
 * [iptables简单使用例子](https://emacsist.github.io/2016/10/09/iptables%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/)
 * [Makefile 小记](https://howiezhao.github.io/2019/04/18/makefile/)
 
+### Asciinema
+* [asciinema](https://asciinema.org/)
+* [asciinema to svg](https://github.com/marionebl/svg-term-cli)
 
 ### Jaeger
 * [开源分布式追踪系统 — Jaeger介绍](http://t.zoukankan.com/ChangAn223-p-11458226.html)

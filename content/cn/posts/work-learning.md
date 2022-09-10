@@ -75,3 +75,8 @@ func replace(text string, replacement map[string]string) string {
 
 ### SSH
 * [隧道代理](https://kanda.me/2019/07/01/ssh-over-http-or-socks/)
+
+### Service Mesh
+* [什么是 Service Mesh](https://zhuanlan.zhihu.com/p/61901608)
+* [我的ServiceMesh学习之旅](https://bbs.huaweicloud.com/blogs/345339)
+* [(2017)Pattern: Service Mesh](https://skyao.io/learning-servicemesh/docs/introduction/recommended/pattern_service_mesh.html)

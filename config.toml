@@ -1,6 +1,6 @@
 baseURL = "https://www.ileopold.cn/"
 languageCode = "zh-cn"
-title = "Headbanger"
+title = "妈妈说只要名字长就有笨比跟着念-服务端技术分享"
 theme = "yinyang"
 DefaultContentLanguage = "cn"
 enableRobotsTXT = true

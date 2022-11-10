@@ -25,6 +25,8 @@ description: "工作知识补充区"
 * [Go基础0x02-go build -tags使用](https://www.cnblogs.com/JasonCeng/p/15134495.html)
 * [Gob序列化](https://www.cnblogs.com/yinzhengjie2020/p/12735277.html)
 * [ants协程池](https://github.com/panjf2000/ants)
+* [golang在编译时用ldflags设置变量的值](https://studygolang.com/articles/9422)
+
 * 正则替换
 
 ```
@@ -80,3 +82,10 @@ func replace(text string, replacement map[string]string) string {
 * [什么是 Service Mesh](https://zhuanlan.zhihu.com/p/61901608)
 * [我的ServiceMesh学习之旅](https://bbs.huaweicloud.com/blogs/345339)
 * [(2017)Pattern: Service Mesh](https://skyao.io/learning-servicemesh/docs/introduction/recommended/pattern_service_mesh.html)
+
+### Python
+* [How to capture HTTP requests using Selenium](https://www.dilatoit.com/2020/12/17/how-to-capture-http-requests-using-selenium.html)
+
+
+### 压测方案
+* [Performance test](https://github.com/panjianning/performance-test)

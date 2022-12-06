@@ -17,6 +17,7 @@ description: "工作知识补充区"
 * [Git通过配置config维护多个账号，区分个人账号和公司账号](https://blog.csdn.net/CoderBruis/article/details/120674608)
 * [git commit](https://github.com/Zhengqbbb/cz-git)
 * [Gitmoji](https://github.com/carloscuesta/gitmoji)
+* [GitHook](https://razeen.me/posts/golang-and-git-commit-message-pre-commit/)
 
 
 ### Golang

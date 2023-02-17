@@ -79,6 +79,8 @@ hide: true
 * [你说说互斥锁、自旋锁、读写锁、悲观锁、乐观锁的应用场景](https://cloud.tencent.com/developer/article/1700079)
 * [协程究竟比线程能省多少开销？](https://segmentfault.com/a/1190000037676163)
 * [Go 1.9 sync.Map揭秘](https://colobu.com/2017/07/11/dive-into-sync-Map/)
+* [Go微服务--令牌桶实现原理](https://www.cnblogs.com/failymao/p/15221534.html)
+* [值接收者和指针接收者的区别](https://golang.design/go-questions/interface/receiver/)
 * 切片扩容
 
 {{< highlight go "linenos=table,linenostart=1" >}}

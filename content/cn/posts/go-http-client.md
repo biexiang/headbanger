@@ -9,7 +9,7 @@ description: "Golang Http Client 源码阅读"
 ## 背景
 发压工具一般都需要提供尽量大的发压能力，发压工具在从Python迁移到Golang的过程中遇到了两个HttpClient连接相关的问题：
 
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 func NewHTTPClient() *http.Client {
 	t := &http.Transport{
 		DialContext: (&net.Dialer{
@@ -40,13 +40,13 @@ func callEndpoint() bool {
 	}
 	return false
 }
-```
+{{< / highlight >}}
 * Q1，上述代码为什么连接没有复用，而是频繁创建？
 * Q2，连接池是如何复用的？
 
 
 ## 数据结构
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 type Client struct {
     // 具体数据传输实现
 	Transport RoundTripper
@@ -121,14 +121,14 @@ type persistConn struct {
 	broken               bool  // an error has happened on this connection; marked broken so it's not reused.
 	reused               bool  // whether conn has had successful request/response and is being reused.
 }
-```
+{{< / highlight >}}
 
 ## 源码分析
-[oneNote](https://1drv.ms/u/s!AlojCX6YGXCNeOX4M4DZcQXHLFk)
+[-> oneNote](https://1drv.ms/u/s!AlojCX6YGXCNeOX4M4DZcQXHLFk)
 
 ## 如何设置连接池参数
 核心参数就是MaxIdleConns、MaxIdleConnsPerHost、MaxConnsPerHost和IdleConnTimeout。
-如果不使用连接池，短连接不断地建立和关闭，会导致产生非常多的TIME_WAIT，最后本地端口用光服务就不可用了。
+如果不使用连接池，短连接不断地建立和关闭，会导致产生非常多的TIME_WAIT，最后本地端口用光服务就不可用了。		
 如果只有一个Host，那MaxIdleConnsPerHost=MaxIdleConns，就只需要考虑最大连接数和最大空闲连接数了，具体还是看业务产生多大的并发调用。
 比如上面代码，如果不设置MaxConnsPerHost，当并发数远超连接池大小时，依然会创建很多的连接，最后就会因没法放回连接池而频繁关闭。
 这里也需要考虑闲时和忙时，如果MaxIdleConnsPerHost很大，忙时自然有优势，但是等到低峰期会存在大量空闲连接，所以这时候就很需要IdleConnTimeout，让连接自动关闭。
@@ -140,7 +140,7 @@ type persistConn struct {
 
 ### ClientTrace
 http库也提供了ClientTrace来方便定位问题，ClientTrace是一堆hook方法的集合，比如可以用来分析DNS解析画了多少时间，或者通过PutIdleConn方法知道是否连接复用上有error发生
-```
+{{< highlight go "linenos=table,linenostart=1" >}}
 type ClientTrace struct {
 	GetConn func(hostPort string)
 
@@ -174,7 +174,7 @@ type ClientTrace struct {
 
 	WroteRequest func(WroteRequestInfo)
 }
-```
+{{< / highlight >}}
 
 ### Cookie管理
 如果是请求前登陆，然后后续不断地请求，就可以不用单独给每个request设置单独的cookie了，和浏览器的使用一样

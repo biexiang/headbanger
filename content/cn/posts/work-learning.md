@@ -90,3 +90,11 @@ func replace(text string, replacement map[string]string) string {
 
 ### 压测方案
 * [Performance test](https://github.com/panjianning/performance-test)
+
+### Go Useful Tools
+* [golang.org/x/sync/singleflight](golang.org/x/sync/singleflight)，防止缓存击穿
+* [golang.org/x/sync/errgroup](golang.org/x/sync/errgroup)
+* [github.com/sony/gobreaker](github.com/sony/gobreaker)，断路器
+* [github.com/meirf/gopart](github.com/meirf/gopart)，方便并发切片
+* [golang.org/x/time/rate](golang.org/x/time/rate)，本地限流，可日志限流打印
+* [golang.org/x/sync/semaphore](golang.org/x/sync/semaphore)

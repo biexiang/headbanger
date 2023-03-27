@@ -102,6 +102,8 @@ ROUTINE ======================== runtime.goparkunlock in /usr/local/go/src/runti
 
 通过这种手段，只需要在问题发生期间抓包，就能线下分析立即找出问题代码的位置，并且上线修复。
 
+如果看不出来问题，还可以抓取正常时期的包以及异常时期的包，通过 -base 指定基准来确定问题代码。
+
 ## Reference
 [性能调试利器使用](http://liuqh.icu/2021/11/27/go/package/31-trace/)
 [Go 大杀器之跟踪剖析 trace](https://eddycjy.gitbook.io/golang/di-9-ke-gong-ju/go-tool-trace)

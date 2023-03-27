@@ -27,6 +27,17 @@ description: "工作知识补充区"
 * [Gob序列化](https://www.cnblogs.com/yinzhengjie2020/p/12735277.html)
 * [ants协程池](https://github.com/panjf2000/ants)
 * [golang在编译时用ldflags设置变量的值](https://studygolang.com/articles/9422)
+* [dlv调试](https://chai2010.cn/advanced-go-programming-book/ch3-asm/ch3-09-debug.html)
+* [反序列化json默认类型](https://pkg.go.dev/encoding/json#Decoder.Decode)
+
+```
+bool, for JSON booleans
+float64, for JSON numbers
+string, for JSON strings
+[]interface{}, for JSON arrays
+map[string]interface{}, for JSON objects
+nil for JSON null
+```
 
 * 正则替换
 

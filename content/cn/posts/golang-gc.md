@@ -109,3 +109,4 @@ BTW，`go tool trace` 工具确定可以，和Final Cut Pro X一样的手感，�
 * [垃圾回收](https://golang.design/under-the-hood/zh-cn/part2runtime/ch08gc/basic/)
 * [关于Golang GC的一些误解](https://studygolang.com/articles/31431)
 * [一文弄懂 Golang GC、三色标记、混合写屏障机制](https://juejin.cn/post/7040737998014513183)
+* [Go ballast](https://medium.com/@angus258963/go-memory-ballast-how-i-learnt-to-stop-worrying-and-love-the-heap-bc5eb2181f93)

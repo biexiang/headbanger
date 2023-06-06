@@ -28,6 +28,7 @@ description: "工作知识补充区"
 * [ants协程池](https://github.com/panjf2000/ants)
 * [golang在编译时用ldflags设置变量的值](https://studygolang.com/articles/9422)
 * [dlv调试](https://chai2010.cn/advanced-go-programming-book/ch3-asm/ch3-09-debug.html)
+* [Go Generic](https://segmentfault.com/a/1190000041634906)
 * [反序列化json默认类型](https://pkg.go.dev/encoding/json#Decoder.Decode)
 
 ```

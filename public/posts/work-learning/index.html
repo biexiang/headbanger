@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.91.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="ileopold" />
+  <meta property="og:url" content="https://www.ileopold.cn/posts/work-learning/" />
+  <meta content="work" name="keywords">
+  <link rel="canonical" href="https://www.ileopold.cn/posts/work-learning/" />
+  <meta name="sogou_site_verification" content="2i7JohrE4G" /><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/biexiang/headbanger@main/static" /><link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="icon" href="/logo.png" />
+  <link rel="shortcut" href="/logo.png" /><link rel="alternate" type="application/atom+xml" href="https://www.ileopold.cn/index.xml" title="妈妈说只要名字长就有笨比跟着念-服务端技术分享"><title>知识补充区</title>
+  <meta property="og:title" content="知识补充区" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="工作知识补充区" />
+  <meta name="description" content="工作知识补充区" />
+  <meta property="og:locale" content="zh-cn" />
+  
+    <style>body{font-family:bree serif,sans-serif;-webkit-font-smoothing:antialiased;margin:0 20px}article{max-width:800px;margin-left:auto;margin-right:auto}a{color:#000;text-decoration:none}a:hover{font-weight:600;text-decoration:underline}.post-ads{margin:50px 0}.markdown-body{font-size:18px;max-width:100%}.markdown-body a{text-decoration:underline;text-decoration-color:#000}.markdown-body pre{padding:16px;overflow:auto;border-radius:10px}.markdown-body code{padding:.2em .4em;font-size:85%;background-color:#f6f8fa;border-radius:6px}.markdown-body pre>code{padding:0;font-size:100%;background-color:inherit;border:0}.Chinese .markdown-body{line-height:200%}.site-date-catalog{font-size:2rem}.header-title{font-size:2rem;font-weight:700;margin-top:32px;font-family:bungee shade,sans-serif}.header-title a{text-decoration:none}.header-subtitle{color:#666}.header-items{margin:10px 0}.header-item{margin:0 5px}.header-line{width:100%;border-width:2px;border-color:#482936;border-style:solid none none none}.lang-switch{font-weight:600}#posts-list{min-height:600px}.posts-line{font-size:1.2rem;margin:12px 0}.posts-categories{font-size:.8rem;margin:auto;text-align:center}.posts-category{padding:3px 0;border:#000 2px solid;border-radius:5px}.site-footer{margin-top:50px}.site-footer-item{margin-right:12px}.post-content img{max-width:100%;display:block;margin-right:auto;margin-top:12px}.post-header{margin-bottom:50px}.post-title{font-size:2rem;font-weight:600}.post-tags{display:inline;font-weight:600;padding:2px 5px;margin-right:6px;border:#000 2px solid;border-radius:5px}.post-date{font-weight:800;font-style:italic}.post-author{float:right;font-weight:600}.page-content{min-height:60%}.post-content{margin-bottom:50px}.post-content p{hyphens:auto;line-height:1.8;text-justify:ideographic;margin-bottom:1em}.related-content{border-width:3px;border-style:solid;border-color:#000;padding:0 10px;margin-bottom:50px;margin-top:100px}.related-content li{margin:5px 0}.taxonomy-term{font-size:3rem}.gallery-img{text-align:center}.gallery-img span{text-align:center}.gallery-img-desc{font-size:.8em;font-weight:800}#disqus_thread{position:relative}#disqus_thread:after{content:"";display:block;height:55px;width:100%;position:absolute;bottom:0;background:#fff}@media screen and (max-width:600px){.header-title,.header-subtitle,.header-items{text-align:center}.posts-line{font-size:16px}.markdown-body{font-size:16px}.post-title{font-size:2rem}.post-content p{letter-spacing:.05em}}@media screen and (max-width:48em){.posts-category{display:none}}</style>
+  
+  
+    <style>.container,.container-fluid{margin-right:auto;margin-left:auto}.container-fluid{padding-right:2rem;padding-left:2rem}.row{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:0;-ms-flex:0 1 auto;flex:initial;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.5rem;margin-left:-.5rem}.row.reverse{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.col.reverse{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.col-xs,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-offset-0,.col-xs-offset-1,.col-xs-offset-10,.col-xs-offset-11,.col-xs-offset-12,.col-xs-offset-2,.col-xs-offset-3,.col-xs-offset-4,.col-xs-offset-5,.col-xs-offset-6,.col-xs-offset-7,.col-xs-offset-8,.col-xs-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-xs{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-xs-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-xs-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-xs-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-xs-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-xs-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-xs-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-xs-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-xs-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-xs-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-xs-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-xs-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-xs-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-xs-offset-0{margin-left:0}.col-xs-offset-1{margin-left:8.33333333%}.col-xs-offset-2{margin-left:16.66666667%}.col-xs-offset-3{margin-left:25%}.col-xs-offset-4{margin-left:33.33333333%}.col-xs-offset-5{margin-left:41.66666667%}.col-xs-offset-6{margin-left:50%}.col-xs-offset-7{margin-left:58.33333333%}.col-xs-offset-8{margin-left:66.66666667%}.col-xs-offset-9{margin-left:75%}.col-xs-offset-10{margin-left:83.33333333%}.col-xs-offset-11{margin-left:91.66666667%}.start-xs{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-xs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-xs{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-xs{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-xs{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-xs{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-xs{-ms-flex-pack:distribute;justify-content:space-around}.between-xs{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-xs{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-xs{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}@media only screen and (min-width:48em){.container{width:49rem}.col-sm,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-offset-0,.col-sm-offset-1,.col-sm-offset-10,.col-sm-offset-11,.col-sm-offset-12,.col-sm-offset-2,.col-sm-offset-3,.col-sm-offset-4,.col-sm-offset-5,.col-sm-offset-6,.col-sm-offset-7,.col-sm-offset-8,.col-sm-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-sm{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-sm-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-sm-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-sm-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-sm-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-sm-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-sm-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-sm-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-sm-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-sm-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-sm-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-sm-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-sm-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-sm-offset-0{margin-left:0}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-11{margin-left:91.66666667%}.start-sm{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-sm{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-sm{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-sm{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-sm{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-sm{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-sm{-ms-flex-pack:distribute;justify-content:space-around}.between-sm{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-sm{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-sm{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:64em){.container{width:65rem}.col-md,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-offset-0,.col-md-offset-1,.col-md-offset-10,.col-md-offset-11,.col-md-offset-12,.col-md-offset-2,.col-md-offset-3,.col-md-offset-4,.col-md-offset-5,.col-md-offset-6,.col-md-offset-7,.col-md-offset-8,.col-md-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-md{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-md-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-md-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-md-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-md-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-md-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-md-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-md-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-md-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-md-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-md-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-md-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-md-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-md-offset-0{margin-left:0}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-3{margin-left:25%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-6{margin-left:50%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-9{margin-left:75%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-11{margin-left:91.66666667%}.start-md{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-md{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-md{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-md{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-md{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-md{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-md{-ms-flex-pack:distribute;justify-content:space-around}.between-md{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-md{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-md{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:75em){.container{width:76rem}.col-lg,.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-offset-0,.col-lg-offset-1,.col-lg-offset-10,.col-lg-offset-11,.col-lg-offset-12,.col-lg-offset-2,.col-lg-offset-3,.col-lg-offset-4,.col-lg-offset-5,.col-lg-offset-6,.col-lg-offset-7,.col-lg-offset-8,.col-lg-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-lg{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-lg-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-lg-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-lg-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-lg-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-lg-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-lg-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-lg-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-lg-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-lg-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-lg-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-lg-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-lg-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-lg-offset-0{margin-left:0}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-11{margin-left:91.66666667%}.start-lg{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-lg{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-lg{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-lg{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-lg{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-lg{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-lg{-ms-flex-pack:distribute;justify-content:space-around}.between-lg{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-lg{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-lg{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}</style>
+  
+
+  
+    <style>@charset "UTF-8";blockquote.quote{position:relative;margin:2em auto;padding-left:3em;border:none}blockquote.quote::before{position:absolute;left:0;content:'“';color:var(--color-contrast-low);font-family:jetbrains mono,amstelvar,noto serif sc,serif;font-size:3em;font-weight:700;line-height:1}blockquote.quote.poetry{display:table;padding:0}blockquote.quote.poetry::before{left:-1em}blockquote.quote.poetry p:last-child{margin:0}blockquote.quote.en p{line-height:1.618;text-align:left;hyphens:auto;-webkit-hyphens:auto;-moz-hyphens:auto}</style>
+  
+
+  
+
+  <link href="https://cdn.jsdelivr.net/gh/biexiang/headbanger@main/static/index.xml" rel="alternate" type="application/rss+xml"
+    title="妈妈说只要名字长就有笨比跟着念-服务端技术分享">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.font.im/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet">
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV86B54BT8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JV86B54BT8');
+</script> 
+  
+
+  
+</head>
+
+
+<body>
+  <article class="post 简体中文" id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="header-title">
+    <a href="/"
+      >Headbanger</a
+    >
+  </div>
+  <div class="header-subtitle">For self tracking and make progress</div>
+</header>
+<div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://steamcommunity.com/id/ileopold0524/games/?tab=all" target="_blank">Game</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://movie.douban.com/people/ileopold/collect" target="_blank">Movie</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://book.douban.com/people/ileopold/collect" target="_blank">Book</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="/404/" target="_blank">Travel</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="/about" target="_blank">About</a>
+  </div>
+  
+</div>
+<div class="row end-xs">
+   
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">知识补充区</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2022-07-01 22:07:24 CST">
+                01 Jul 2022
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="http://ileopold.cn/">@ileopold</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          
+    <iframe
+        frameborder="no"
+        border="0"
+        marginwidth="0"
+        marginheight="0"
+        width=60%
+        height=86
+        src="//music.163.com/outchain/player?type=2&id=27588968&auto=1&height=66">
+    </iframe>
+
+<h3 id="git">Git</h3>
+<ul>
+<li>
+<a href="https://blog.51cto.com/u_15127588/4728372" target="_blank">GitHub中origin和upstream的区别</a></li>
+<li>
+<a href="https://www.jianshu.com/p/ff4f98695c2c" target="_blank">Git commit 使用及规范</a></li>
+<li>
+<a href="https://stackoverflow.com/questions/1722807/how-to-convert-git-urls-to-http-urls" target="_blank">How to convert <code>git:</code> urls to <code>http:</code> urls</a></li>
+<li>
+<a href="https://blog.csdn.net/CoderBruis/article/details/120674608" target="_blank">Git通过配置config维护多个账号，区分个人账号和公司账号</a></li>
+<li>
+<a href="https://github.com/Zhengqbbb/cz-git" target="_blank">git commit</a></li>
+<li>
+<a href="https://github.com/carloscuesta/gitmoji" target="_blank">Gitmoji</a></li>
+<li>
+<a href="https://razeen.me/posts/golang-and-git-commit-message-pre-commit/" target="_blank">GitHook</a></li>
+</ul>
+<h3 id="golang">Golang</h3>
+<ul>
+<li>
+<p>
+<a href="https://polarisxu.studygolang.com/posts/go/dynamic/go1.17-build-contraints/" target="_blank">Go的构建约束</a></p>
+</li>
+<li>
+<p>
+<a href="https://tonybai.com/2021/07/19/understand-go-plugin/" target="_blank">Go Plugin</a></p>
+</li>
+<li>
+<p>
+<a href="https://www.cnblogs.com/JasonCeng/p/15134495.html" target="_blank">Go基础0x02-go build -tags使用</a></p>
+</li>
+<li>
+<p>
+<a href="https://www.cnblogs.com/yinzhengjie2020/p/12735277.html" target="_blank">Gob序列化</a></p>
+</li>
+<li>
+<p>
+<a href="https://github.com/panjf2000/ants" target="_blank">ants协程池</a></p>
+</li>
+<li>
+<p>
+<a href="https://studygolang.com/articles/9422" target="_blank">golang在编译时用ldflags设置变量的值</a></p>
+</li>
+<li>
+<p>正则替换</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">func replace(text string, replacement map[string]string) string {
+	var leftPad, rightPad = `{{`, `}}`
+	var rgx = regexp.MustCompile(leftPad + &#34;(.*?)&#34; + rightPad)
+	rs := rgx.ReplaceAllFunc([]byte(text), func(bytes []byte) []byte {
+		key := bytes[len(leftPad) : len(bytes)-len(rightPad)]
+		log.Println(string(key))
+		if val, ok := replacement[string(key)]; ok &amp;&amp; val != &#34;&#34; {
+			return []byte(val)
+		}
+		return bytes
+	})
+	return string(rs)
+}
+</code></pre></div><h3 id="grafana">Grafana</h3>
+<ul>
+<li>
+<a href="https://github.com/Kalasearch/grafana-tutorial" target="_blank">grafana-tutorial</a></li>
+<li>
+<a href="">Prometheus+Grafana学习</a></li>
+<li>
+<a href="https://mojotv.cn/go/prometheus-client-for-go" target="_blank">Go进阶31:Prometheus Client教程</a></li>
+<li>
+<a href="https://segmentfault.com/a/1190000040503959" target="_blank">Google mtail配合Prometheus和Grafana实现自定义日志监控</a></li>
+<li>
+<a href="https://github.com/retzkek/chiamon" target="_blank">docker compose</a></li>
+<li>
+<a href="https://www.cnblogs.com/rongfengliang/p/10117107.html" target="_blank">使用loki+ mtail + grafana + prometheus server分析应用问题</a></li>
+</ul>
+<h3 id="ansible">Ansible</h3>
+<ul>
+<li>
+<a href="https://segmentfault.com/a/1190000020523508" target="_blank">Ansible Playbook 入门指南</a></li>
+<li>
+<a href="https://ansible-tran.readthedocs.io/en/latest/docs/playbooks_intro.html" target="_blank">Playbooks 介绍</a></li>
+</ul>
+<h3 id="draw">Draw</h3>
+<ul>
+<li>
+<a href="https://jeanhwea.github.io/article/drawing-graphs-with-dot.html#org8e4fe4c" target="_blank">使用 dot 画图工具</a></li>
+</ul>
+<h3 id="goland">Goland</h3>
+<ul>
+<li>
+<a href="https://juejin.cn/post/6982554895987507230" target="_blank">器 | Goland 设置注释模板</a></li>
+<li>
+<a href="https://www.lixueduan.com/post/go/swagger/" target="_blank">Swagger</a></li>
+</ul>
+<h3 id="linux">Linux</h3>
+<ul>
+<li>
+<a href="https://emacsist.github.io/2016/10/09/iptables%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/" target="_blank">iptables简单使用例子</a></li>
+<li>
+<a href="https://howiezhao.github.io/2019/04/18/makefile/" target="_blank">Makefile 小记</a></li>
+</ul>
+<h3 id="asciinema">Asciinema</h3>
+<ul>
+<li>
+<a href="https://asciinema.org/" target="_blank">asciinema</a></li>
+<li>
+<a href="https://github.com/marionebl/svg-term-cli" target="_blank">asciinema to svg</a></li>
+</ul>
+<h3 id="jaeger">Jaeger</h3>
+<ul>
+<li>
+<a href="http://t.zoukankan.com/ChangAn223-p-11458226.html" target="_blank">开源分布式追踪系统 — Jaeger介绍</a></li>
+</ul>
+<h3 id="ssh">SSH</h3>
+<ul>
+<li>
+<a href="https://kanda.me/2019/07/01/ssh-over-http-or-socks/" target="_blank">隧道代理</a></li>
+</ul>
+<h3 id="service-mesh">Service Mesh</h3>
+<ul>
+<li>
+<a href="https://zhuanlan.zhihu.com/p/61901608" target="_blank">什么是 Service Mesh</a></li>
+<li>
+<a href="https://bbs.huaweicloud.com/blogs/345339" target="_blank">我的ServiceMesh学习之旅</a></li>
+<li>
+<a href="https://skyao.io/learning-servicemesh/docs/introduction/recommended/pattern_service_mesh.html" target="_blank">(2017)Pattern: Service Mesh</a></li>
+</ul>
+<h3 id="python">Python</h3>
+<ul>
+<li>
+<a href="https://www.dilatoit.com/2020/12/17/how-to-capture-http-requests-using-selenium.html" target="_blank">How to capture HTTP requests using Selenium</a></li>
+</ul>
+<h3 id="压测方案">压测方案</h3>
+<ul>
+<li>
+<a href="https://github.com/panjianning/performance-test" target="_blank">Performance test</a></li>
+</ul>
+<h3 id="go-useful-tools">Go Useful Tools</h3>
+<ul>
+<li>
+<a href="golang.org/x/sync/singleflight">golang.org/x/sync/singleflight</a>，防止缓存击穿</li>
+<li>
+<a href="golang.org/x/sync/errgroup">golang.org/x/sync/errgroup</a></li>
+<li>
+<a href="github.com/sony/gobreaker">github.com/sony/gobreaker</a>，断路器</li>
+<li>
+<a href="github.com/meirf/gopart">github.com/meirf/gopart</a>，方便并发切片</li>
+<li>
+<a href="golang.org/x/time/rate">golang.org/x/time/rate</a>，本地限流，可日志限流打印</li>
+<li>
+<a href="golang.org/x/sync/semaphore">golang.org/x/sync/semaphore</a></li>
+</ul>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
+          <div class="post-comments">
+            <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://ileopold.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+          </div>
+          
+        
+
+        <div class="site-footer">
+  <div class="site-footer-item" style="text-align: center;">
+    <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备18045353号-2</a>
+  </div>
+  <br><br>
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  
+<script src="https://cdn.jsdelivr.net/gh/biexiang/headbanger@main/static/js/lazyload.min.js"></script>
+<script>
+  var lazyImage = new LazyLoad({
+    container: document.getElementById('article')
+  });
+</script>
+
+<script>
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>

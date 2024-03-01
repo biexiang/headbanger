@@ -29,6 +29,8 @@ description: "工作知识补充区"
 * [golang在编译时用ldflags设置变量的值](https://studygolang.com/articles/9422)
 * [dlv调试](https://chai2010.cn/advanced-go-programming-book/ch3-asm/ch3-09-debug.html)
 * [Go Generic](https://segmentfault.com/a/1190000041634906)
+* [Go-mod依赖及可视化](http://www.zengyuzhao.com/archives/348)
+* [Golang 的骚操作：go:linkname](https://zhuanlan.zhihu.com/p/440622708)
 * [反序列化json默认类型](https://pkg.go.dev/encoding/json#Decoder.Decode)
 
 ```

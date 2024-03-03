@@ -1,3 +1,6 @@
 .hugo_build.lock
 .vscode
 resources
+public/
+public/*
+public
